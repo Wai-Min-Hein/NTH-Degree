@@ -1,31 +1,18 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { MenuPropsType } from "./type";
 
-const MenuComponent = ({ menus }) => {
-
-
+const MenuComponent = ({id, menuName, image}: MenuPropsType) => {
   return (
     <div className="flex justify-between items-center">
-      {
-            menus?.map((menu) => (
-                <div className="" key={menu.id}>
-                    <h1>
+      <div className="" key={id}>
+        <h1>{menuName}</h1>
 
-                    {menu?.menuName}
-                    </h1>
-
-                    <div className="">
-                        <Image src={menu.image} width={200} height={100} alt="Test"/>
-                    </div>
-                </div>
-            ))
-        }
-
-
-
-
-       
+        <div className="">
+          <Image src={image} width={200} height={100} alt="Test" />
+        </div>
+      </div>
     </div>
   );
 };

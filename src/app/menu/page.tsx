@@ -1,9 +1,9 @@
 import { GetMenu } from "@/DataFetching/data";
 import MenuComponent from "@/components/MenuComponent";
+import { MenuPropsType } from "@/components/type";
 
 const page = async () => {
-  const menus = await GetMenu();
-console.log(menus)
+  const menus: MenuPropsType[] = await GetMenu();
 
  
 
@@ -12,21 +12,12 @@ console.log(menus)
   
 
   return <div>
-        {/* {
-            menus?.map((menu) => (
-                <div className="" key={menu.id}>
-                    <h1>
-
-                    {menu?.menuName}
-                    </h1>
-
-                    <div className="">
-                        <Image src={menu.image} width={200} height={100} alt="Test"/>
-                    </div>
-                </div>
+        {
+            menus?.map((menu:MenuPropsType) => (
+                
+               <MenuComponent key={menu.id} {...menu}/> 
             ))
-        } */}
-        <MenuComponent menus={menus}/>
+        }
   </div>;
 };
 
